@@ -1,0 +1,16 @@
+{
+    "name": "Nehrajsa.PrefabLocker.Editor",
+    "rootNamespace": "Nehrajsa.PrefabLocker.Editor",
+    "references": ["Nehrajsa.PrefabLocker"],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

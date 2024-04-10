@@ -1,0 +1,19 @@
+{
+  "name": "nehrajsa.prefablocker",
+  "displayName": "Prefab Locker",
+  "version": "1.0.0",
+  "unity": "2019.4",
+  "description": "Prefab Locker",
+  "author": {
+	"name": "nehrajsa",
+	"email": "michal.nehrajsa@gmail.com"
+  },
+  "keywords": [ 
+	"package",
+	"unity",
+    "prefab",
+	"utility"
+  ],
+  "dependencies": {
+  }
+}
