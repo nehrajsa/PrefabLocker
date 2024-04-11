@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using UnityEditor;
-using UnityEditor.SceneManagement;
 using UnityEngine;
 
 namespace Nehrajsa.PrefabLocker.Editor
@@ -23,6 +22,19 @@ namespace Nehrajsa.PrefabLocker.Editor
         private SerializedProperty _autoRemoveAddedComponentOverrides;
         private SerializedProperty _autoRemoveAddedGameObjectOverrides;
         private int _instanceId;
+        
+        private bool IsInPrefabView
+        {
+            get
+            {
+#if UNITY_2021_2_OR_NEWER
+                return UnityEditor.SceneManagement.PrefabStageUtility.GetCurrentPrefabStage() != null;
+#else
+                return UnityEditor.Experimental.SceneManagement.PrefabStageUtility.GetCurrentPrefabStage() != null;
+#endif
+                return false;
+            }
+        }
 
         private void OnEnable()
         {
@@ -47,7 +59,7 @@ namespace Nehrajsa.PrefabLocker.Editor
             var prefabLockerInstance = target as PrefabLocker;
             if (!prefabLockerInstance) return;
             
-            if (PrefabStageUtility.GetCurrentPrefabStage())
+            if (IsInPrefabView)
             {
                 serializedObject.Update();
                 _autoRemoveAddedComponentOverrides.boolValue = EditorGUILayout.ToggleLeft("Auto Remove Added Component Overrides", _autoRemoveAddedComponentOverrides.boolValue);
